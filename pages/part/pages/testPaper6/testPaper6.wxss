@@ -1,0 +1,106 @@
+/* pages/part//pages/testPaper6/testPaper6.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000;
+}
+
+.bg {
+  display: block;
+  width: 750rpx;
+  height: 100%;
+}
+
+.center {
+  position: absolute;
+  width: 700rpx;
+  height: 800rpx;
+  left: 25rpx;
+  top: 150rpx;
+  z-index: 100;
+  /* background: rgba(255,255,255,.2); */
+  border-radius: 10rpx;
+
+}
+
+.top {
+  animation:bounce infinite 2s;
+ 
+}
+
+.title {
+  width:420rpx;
+  height: 98rpx;
+  display: block;
+  margin: 0 auto;
+
+
+}
+
+.text {
+  font-size: 30rpx;
+  color: #999;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50rpx;
+}
+
+.userCenter {
+  width: 300rpx;
+}
+
+.userCenter .userImg {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.userCenter .inp {
+  height: 60rpx;
+  border-radius: 5rpx;
+  width: 200rpx;
+  margin: 0 auto;
+  display: block;
+  margin-top: 10rpx;
+  padding-left: 10rpx;
+  color: #666;
+  background: #fff;
+  text-align: center;
+}
+
+.input-placeholder {
+  font-size: 24rpx;
+  line-height: 60rpx;
+  color: 999；
+}
+
+.main .xin {
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 100rpx;
+ animation: heartBeat infinite 2s;
+}
+
+.btn {
+  width: 400rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin: 0 auto;
+  margin-top: 250rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+  font-weight: bold;
+  box-shadow: 2rpx 2rpx 8rpx rgba(0, 0, 0, .3);
+}

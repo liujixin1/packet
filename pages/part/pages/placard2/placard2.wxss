@@ -1,0 +1,253 @@
+/* pages/placard2/placard2.wxss */
+page{
+  height: 100%;
+}
+.container ,.mian{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  display: block;
+}
+
+.bg {
+  display: block;
+  width: 750rpx;
+  height: 100%;
+}
+
+.center {
+  position: absolute;
+  width: 100%;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 10;
+  border-radius: 10rpx;
+}
+
+.title {
+  font-size: 55rpx;
+  text-align: center;
+  font-weight: bold;
+  color: #222;
+  margin-top: 70rpx;
+  text-shadow: 5rpx 5rpx 5rpx #fff;
+}
+
+.wrap {
+  position: relative;
+  margin-top: 70rpx;
+  width: 100%;
+  height: 900rpx;
+}
+
+.wrap .one {
+  width: 900rpx;
+  height: 900rpx;
+  position: absolute;
+  left: -120rpx;
+  top: 0rpx;
+  background: #587190;
+  border-radius: 450rpx;
+  z-index: 20;
+  border: 2rpx solid #fff;
+}
+
+.wrap .two {
+  width: 650rpx;
+  height: 650rpx;
+  border-radius: 325rpx;
+  background: #fbc3aa;
+  position: absolute;
+  left: -100rpx;
+  top: 125rpx;
+  z-index: 21;
+  border: 2rpx solid #fff;
+}
+
+.wrap .three {
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 200rpx;
+  background: #c45f63;
+  top: 250rpx;
+  left: -30rpx;
+  z-index: 22;
+  position: absolute;
+  border: 2rpx solid #fff;
+}
+
+.userinfo-avatar {
+  position: absolute;
+  width: 140rpx;
+  height: 140rpx;
+  left: 40rpx;
+  top: 380rpx;
+  z-index: 100;
+  border-radius: 70rpx;
+  border: 2rpx solid #fff;
+  overflow: hidden;
+}
+
+.wrapList {
+  position: absolute;
+  top: 395rpx;
+  left: 100rpx;
+  z-index: 99;
+  display: flex;
+  border-top: 1rpx solid #999;
+  border-bottom: 1rpx solid #999;
+  height: 120rpx;
+  background: #fff;
+  padding-left: 50rpx;
+}
+
+.wrapList .wrapItem .itemTop {
+  line-height: 60rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.wrapList .wrapItem .itemBottom {
+  border-top: 1rpx solid #999;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.wrapList .wrapItem:nth-child(1) {
+  width: 213rpx;
+  border-right: 1rpx solid #999;
+  text-align: center;
+  color: #c45f63;
+}
+
+.wrapList .wrapItem:nth-child(2) {
+  width: 187rpx;
+  border-right: 1rpx solid #999;
+  text-align: center;
+  color: #fbc3aa;
+}
+
+.wrapList .wrapItem:nth-child(3) {
+  width: 200rpx;
+  border-right: 1rpx solid #999;
+  text-align: center;
+  color: #587190;
+}
+
+
+
+.textItem {
+  font-size: 26rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 35rpx;
+  z-index: 30;
+  position: absolute;
+}
+
+.textOne:nth-child(1) {
+  top: 295rpx;
+  width: 200rpx;
+  left: 70rpx;
+}
+
+.textOne:nth-child(2) {
+  top: 540rpx;
+  width: 200rpx;
+  left: 70rpx;
+}
+
+.textTwo:nth-child(1) {
+  top: 160rpx;
+  width: 200rpx;
+  left: 120rpx;
+}
+.textTwo:nth-child(2) {
+  top: 250rpx;
+  width: 150rpx;
+  left: 330rpx;
+}
+.textTwo:nth-child(3) {
+  top: 585rpx;
+  width: 150rpx;
+  left: 330rpx;
+}
+.textTwo:nth-child(4) {
+  top: 675rpx;
+  width: 200rpx;
+  left: 120rpx;
+}
+.textThree:nth-child(1){
+  top: 30rpx;
+  width: 200rpx;
+  left: 240rpx;
+}
+.textThree:nth-child(2){
+  top: 150rpx;
+  width: 150rpx;
+  left: 480rpx;
+}
+.textThree:nth-child(3){
+  top: 280rpx;
+  width: 150rpx;
+  left: 560rpx;
+}
+.textThree:nth-child(4){
+  top: 560rpx;
+  width: 150rpx;
+  left: 560rpx;
+}
+.textThree:nth-child(5){
+  top: 685rpx;
+  width: 150rpx;
+  left: 480rpx;
+}
+.textThree:nth-child(6){
+  top: 800rpx;
+  width: 200rpx;
+  left: 240rpx;
+}
+.qr {
+  display: flex;
+  justify-content: center;
+  margin-top: 70rpx;
+}
+.qr .qrText {
+  width: 180rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  color: #fff;
+  margin-right: 20rpx;
+  margin-top: 30rpx;
+}
+
+.qr .qrImg {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.btn {
+  width: 200rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  margin: 0 auto;
+  border-radius: 35rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background: #409eff;
+  font-weight: bold;
+  box-shadow: 2rpx 2rpx 8rpx rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 20rpx;
+  left: 275rpx;
+  z-index: 1000;
+  animation: pulse infinite 1.5s;
+}

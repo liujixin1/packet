@@ -1,0 +1,29 @@
+<!--pages/placard1/placard1.wxml-->
+<view wx:if='{{show}}' class="container">
+	<painter customStyle='position: absolute; left: -9999rpx;' palette="{{template}}" bind:imgOK="onImgOK" widthPixels="1000" />
+	<!-- <image class="img" src="{{image}}" mode="widthFix" /> -->
+	<view  class="mian">
+		<image class="bg" mode="widthFix" src="{{bgImg}}"></image>
+		<view class="center">
+			<open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+			<block wx:for='{{formData.one}}' wx:key="item">
+				<view class="textOne">{{item}}</view>
+			</block>
+      <block wx:for='{{formData.two}}' wx:key="item">
+				<view class="textTwo">{{item}}</view>
+			</block>
+       <block wx:for='{{formData.three}}' wx:key="item">
+				<image class="judge" wx:if='{{item == 1}}' src="{{correctImg}}"></image>
+				<image class="judge" wx:if='{{item == 2}}' src="{{errImg}}"></image>
+
+			</block>
+			<!-- <view class="qr">
+				<view class="qrText">长按识别查看更多精彩测试</view>
+				<image class="qrImg" src="{{qrImg}}"></image>
+			</view> -->
+		</view>
+
+	</view>
+	<button wx:if='{{opType}}' class="btn" bindtap='saveImage'>保存海报</button>
+	<button wx:else class="btn" open-type="openSetting" bindtap='saveImage'>保存海报</button>
+</view>

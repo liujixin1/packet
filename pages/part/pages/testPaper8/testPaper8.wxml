@@ -1,0 +1,21 @@
+<!--pages/part//pages/testPaper8/testPaper8.wxml-->
+<view class="container">
+  <view class="left" style="height:{{leftHeight+'%'}}">
+    <image class="btn1" bindtap="leftBtn" mode="aspectFill" src="{{btn1}}"></image>
+  </view>
+  <view class="right" style="height:{{rightHeight+'%'}}">
+    <image class="btn2" bindtap="rightBtn" mode="aspectFill" src="{{btn2}}"></image>
+  </view>
+  <image class="vs" mode="aspectFill" src="{{vs}}"></image>
+  <view wx:if="{{timeBool}}" class="timeBg"></view>
+  <view wx:if="{{bool}}" class="popBg"></view>
+  <image wx:if="{{timeBool}}" class="time" mode="aspectFill" src="{{timeImg}}"></image>
+  <view wx:if="{{bool}}" class="pop">
+    <image class="trophy" mode="aspectFill" src="{{trophy}}"></image>
+    <view class="popText">{{popText}}</view>
+    <view class="btn">
+      <view bindtap="goIndex" class="btnList">返回首页</view>
+      <view bindtap="renewal" class="btnRight">再来一局</view>
+    </view>
+  </view>
+</view>

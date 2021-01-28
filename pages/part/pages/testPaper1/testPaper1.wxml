@@ -1,0 +1,76 @@
+<!--pages/testPaper1/testPaper1.wxml-->
+<view class="container">
+	<view class="top">
+		<view class="topTitle">普通高等男朋友招生试卷（全国卷）</view>
+		<view class="topList">
+			<view class="topItem">答题时间：90分钟</view>
+			<view class="topItem">总分：100分</view>
+		</view>
+		<view class="attention">
+			<view>注意事项：</view>
+			<view>1、本卷为关于女友的考试试卷，不得擅自涂抹修改，不得交白卷。</view>
+			<view>2、答题者须遵守考试纪律，尊重考试精神，不得舞弊，考试违纪者，视情节严重，处以不吃零食、打游戏等一个月的惩罚，情节严重者给予取消男友资格。</view>
+			<view>3、本次答案解释权在答题人女友手中，对成绩不满者可以咨询。</view>
+			<view>4、出卷目的在于培养两人之间的情感，具有娱乐性，切勿上纲上线。</view>
+		</view>
+	</view>
+	<view class="main">
+		<view class="one">
+			<view class="title">一、选择题：本题共10小题，每题4分，共40分，在每小题给出的四个选项中，只有一项是符合题目要求的。</view>
+			<view class="oneList">
+				<block wx:for='{{formData.one}}' wx:key='index'>
+					<view class="oneItme">
+						<view class="oneItmeTitle">{{item.title}}</view>
+						<block wx:for='{{item.list}}' wx:for-item='items' wx:key='index' wx:for-index='indexs'>
+							<view class="oneItemList" data-index='{{index}}' data-indexs='{{indexs}}' data-value='{{items.name}}' bindtap='selectOne'>
+								<view wx:if='{{items.checked}}' class='iconfont icon-picth'></view>
+								<view wx:else class='iconfont icon-circle'></view>
+								<view class="selectText">{{items.value}}</view>
+							</view>
+						</block>
+					</view>
+				</block>
+			</view>
+		</view>
+		<view class="two">
+			<view class="title">二、填空题：本题共5小题，每题8分，共40分，答案由判卷者为准。</view>
+			<view class="twoList">
+				<block wx:for='{{formData.two}}' wx:key='index'>
+					<view class="twoItem">
+						<view class="twoItemTitle">{{item.name}}</view>
+						<input maxlength='11' type="{{item.type}}" placeholder-class='placeholder' value="{{item.value}}" data-index='{{index}}' placeholder="请输入答案" bindinput="gapFilling"></input>
+					</view>
+
+				</block>
+        <view class="twoItem">
+					<view class="twoItemTitle">4、第一次见面是哪年哪月：</view>
+					<picker mode="date" value="{{resultList.two[3]}}" bindchange="bindDateChange">
+						<input  disabled type="text" placeholder-class='placeholder' value="{{resultList.two[3]}}" data-index='' placeholder="请选择时间"></input>
+					</picker>
+				</view>
+				<view class="twoItem">
+					<view class="twoItemTitle">5、女朋友的生日是哪天：</view>
+					<picker mode="date" value="{{resultList.two[4]}}" bindchange="bindDateChange1">
+						<input disabled type="text" placeholder-class='placeholder' value="{{resultList.two[4]}}" data-index='' placeholder="请选择时间"></input>
+					</picker>
+				</view>
+			</view>
+		</view>
+		<view class="three">
+			<view class="title">三、判断题，本题5题，每题4分，共20分。</view>
+			<view class="threeList">
+				<block wx:for='{{formData.three}}' wx:key='index'>
+					<view class="threeItem">
+						<view class="threeItemText">{{item.name}}</view>
+						<view class="status">
+							<view class='iconfont icon-picth {{item.status==1?"active":""}}' data-index='{{index}}' data-status='1' bindtap="judge"></view>
+							<view class='iconfont icon-wrong {{item.status==2?"active1":""}}' data-index='{{index}}' data-status='2' bindtap="judge"></view>
+						</view>
+					</view>
+				</block>
+
+			</view>
+		</view>
+	</view>
+	<button class="btn" open-type='getUserInfo' bindgetuserinfo="getUserInfo">生成试卷</button>
+</view>

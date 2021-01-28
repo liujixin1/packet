@@ -1,0 +1,10 @@
+<!--pages/testPaper4/testPaper4.wxml-->
+<view class="container">
+  <image class="bg" src="{{bgImg}}"></image>
+  <view class="main">
+    <view class="sign">
+      <image class="singImg"  mode='aspectFill' src="{{singImg}}"></image>
+    </view>
+  </view>
+   <button class="btn" open-type='getUserInfo' bindgetuserinfo="getUserInfo">抽  签</button>
+</view>

@@ -1,0 +1,106 @@
+/* pages/placard7/placard7.wxss */
+page{
+  height: 100%;
+}
+.container ,.main{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  display: block;
+}
+
+.bg {
+  display: block;
+  width: 750rpx;
+  height: 100%;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600rpx;
+  height: 1000rpx;
+  z-index: 1000;
+}
+
+
+.btn {
+  width: 200rpx;
+  height: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  margin: 0 auto;
+  border-radius: 35rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background: rgba(217,170,114,.8);
+  font-weight: bold;
+  box-shadow: 2rpx 2rpx 8rpx rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 20rpx;
+  left: 275rpx;
+  z-index: 1000;
+  animation: pulse infinite 1.5s;
+}
+.top .userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  display: block;
+  border: 2rpx solid #d9aa72;
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-top: 150rpx;
+}
+.num{
+  width: 300rpx;
+  height: 300rpx;
+  position: relative;
+  left: 150rpx;
+  top: 150rpx;
+  
+}
+.num .numBg{
+  width: 300rpx;
+  height: 300rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.num .numText{
+  text-align: center;
+  line-height: 260rpx;
+  font-size: 60rpx;
+  color: #d9aa72;
+  font-weight: bold;
+}
+.numCenter{
+  text-align: center;
+  margin-top: 100rpx;
+}
+.numCenter .numResult{
+  line-height: 50rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #fff;
+}
+.numCenter .numCenterText{
+  font-size: 26rpx;
+  color: #fff;
+}
+.numCenterImg{
+  width:400rpx ;
+  height: 306rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-top: 30rpx;
+}

@@ -1,0 +1,80 @@
+/* pages/testPaper3/testPaper3.wxss */
+page{
+  height: 100%;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000;
+}
+.bg{
+  display: block;
+  width: 750rpx;
+  height: 100%;
+}
+.center{
+  position: absolute;
+  width: 600rpx;
+  height: 800rpx;
+  left: 75rpx;
+  top: 330rpx;
+  z-index: 100;
+  /* background: rgba(255,255,255,.2); */
+  border-radius: 10rpx;
+}
+.item{
+  display: flex;
+  width: 600rpx;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.item .lable{
+  width: 180rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: rgba(230,126,60,.6);
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+.item .inp{
+  width: 400rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background: rgba(255,255,255,.2);
+  box-shadow: 1rpx 1rpx 4rpx rgba(255,255,255,.2);
+
+}
+.item .inp .picker{
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  color: #fff;
+}
+.radio-group .radio{
+  width: 190rpx;
+  color: #fff;
+  font-size: 30rpx;
+  text-align: left;
+  margin-left: 10rpx;
+}
+.btn{
+  width: 400rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  border-radius:40rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background: rgba(230,126,60,.8);
+  font-weight: bold;
+  box-shadow: 2rpx 2rpx 8rpx rgba(0,0,0,.3);
+}
