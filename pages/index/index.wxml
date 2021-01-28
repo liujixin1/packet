@@ -6,34 +6,25 @@
         <view class="videoPop" wx:if='{{item.status == 2}}'>
           <text class="iconfont icon-pause"></text>
         </view>
-        <image mode='aspectFill' src="{{item.img}}" />
-        <view class='bannerText'>{{item.name}}</view>
+        <image mode='aspectFill' src="{{item.banImg}}" />
+        <!-- <view class='bannerText'>{{item.name}}</view> -->
       </swiper-item>
     </block>
   </swiper>
   <view class='list'>
-    <block wx:for='{{listData}}'  wx:key="item">
-      <view data-id='{{item._id}}' data-itemid='{{item.itemId}}' data-status='{{item.status}}' class='item'  bindtap='toArticleDetail'>
-        <view class='itemLeft'>
-          <view class='text'>{{item.name}}</view>
-          <view class="message">{{item.message}}</view>
-          <view class="itemLeFooter">
+    <block wx:for='{{listData}}' wx:key="item">
+      <view data-id='{{item._id}}' data-itemid='{{item.itemId}}' data-status='{{item.status}}' class='item' bindtap='toArticleDetail'>
+        <image class='itemImg' mode='aspectFill' src='{{item.img}}'></image>
+        <view class="bottom">
+          
+        </view>
+        <view class="kai">開</view>
+         <view class="itemLeFooter">
             <view class='iconfont .icon-fire'></view>
-            <view class='time'>{{item.sum}}人已测</view>
-            <!-- <view class='time' wx:if='{{item.author==4}}'>{{item.sum}}人已生成</view> -->
-
+            <view class='time'>{{item.sum}}人已领取</view>
           </view>
-        </view>
-        <view class="imgCenter">
-          <!-- 视频按钮 -->
-          <!-- <view class="videoPop" wx:if='{{item.status == 2}}'>
-            <text class="iconfont icon-pause"></text>
-          </view> -->
-          <image class='itemImg' mode='aspectFill' src='{{item.img}}'></image>
-        </view>
       </view>
     </block>
-
   </view>
   <view class="isEnd" wx:if="{{isEnd}}">没有更多了~</view>
 </view>
