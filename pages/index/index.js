@@ -10,67 +10,18 @@ Page({
     listData: [],
     banner: [],
     page: 0,
-    // status: null,
     isEnd: false
   },
   toArticleDetail(e) {
-    const id = e.currentTarget.dataset.id;
-    const status = e.currentTarget.dataset.status;
-    const itemid = e.currentTarget.dataset.itemid;
-    // console.log(e,111111)
-    switch(itemid){
-      case '1':
-        wx.navigateTo({
-          url: `/pages/part/pages/testPaper1/testPaper1?id=${id}`
-        })
-        break;
-        case '2':
-          wx.navigateTo({
-            url: `/pages/part/pages/details/details?id=${id}&itemid=${itemid}`
-          })
-        break;
-        case '3':
-          wx.navigateTo({
-            url: `/pages/part/pages/testPaper3/testPaper3?id=${id}`
-          })
-        break;
-        case '4':
-          wx.navigateTo({
-            url: `/pages/part/pages/testPaper4/testPaper4?id=${id}`
-          })
-        break;
-        case '5':
-        wx.navigateTo({
-          url: `/pages/part/pages/testPaper5/testPaper5?id=${id}`
-        })
-        break;
-      case '6':
-        wx.navigateTo({
-          url: `/pages/part/pages/testPaper6/testPaper6?id=${id}`
-        })
-        break;
-      case '7':
-        wx.navigateTo({
-          url: `/pages/part/pages/testPaper7/testPaper7?id=${id}`
-        })
-        break;
-        case '8':
-        wx.navigateTo({
-          url: `/pages/part/pages/testPaper8/testPaper8?id=${id}`
-        })
-        break;
-      default:
-        wx.showModal({
-          content: '功能开发中，敬请期待！',
-          showCancel: false,
-        })
-
-    }
+    const src = e.currentTarget.dataset.src;
+    wx.navigateTo({
+      url: `/pages/detail/detail?&img=${src}`
+    })
   },
   getData() {
     const that = this;
     that.setData({
-      page:0
+      page: 0
     })
     let PAGE = 5;
     let page = 0;
@@ -78,7 +29,8 @@ Page({
       title: '加载中...',
     })
     db.collection('test').where({
-      show: true
+      show: true,
+      banner: false
     }).skip(page * PAGE).limit(PAGE).orderBy('date', 'desc').get().then(res => {
       wx.hideLoading();
       wx.stopPullDownRefresh();
@@ -167,28 +119,29 @@ Page({
     page++;
     const PAGE = 5;
     // if (that.data.status == 1) {
-      db.collection('test').where({
-        show: true
-      }).skip(page * PAGE).limit(PAGE).orderBy('date', 'desc').get().then(res => {
-        wx.hideLoading();
-        wx.stopPullDownRefresh();
-        wx.hideNavigationBarLoading();
-        if (res.data.length == 0) {
-          that.setData({
-            isEnd: true
-          })
-        } else {
-          const listData = that.data.listData;
-          res.data.forEach(res => {
-            res.date = time.formatTime(res.date);
-            listData.push(res)
-          })
-          that.setData({
-            page,
-            listData
-          })
-        }
-      })
+    db.collection('test').where({
+      show: true,
+      banner: false
+    }).skip(page * PAGE).limit(PAGE).orderBy('date', 'desc').get().then(res => {
+      wx.hideLoading();
+      wx.stopPullDownRefresh();
+      wx.hideNavigationBarLoading();
+      if (res.data.length == 0) {
+        that.setData({
+          isEnd: true
+        })
+      } else {
+        const listData = that.data.listData;
+        res.data.forEach(res => {
+          res.date = time.formatTime(res.date);
+          listData.push(res)
+        })
+        that.setData({
+          page,
+          listData
+        })
+      }
+    })
     // } else if (that.data.status == 0) {
     //   db.collection('articleLists').skip(page * PAGE).limit(PAGE).orderBy('date', 'desc').get().then(res => {
     //     wx.hideLoading();
