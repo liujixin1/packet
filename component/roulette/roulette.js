@@ -7,11 +7,11 @@ Component({
       value: {},
       observer: function (newVal, oldVal) { }
     },
-    angel:{
-      type:Number,
-      value:0,
-      observer: function (newVal, oldVal) { 
-        if (newVal){
+    angel: {
+      type: Number,
+      value: 0,
+      observer: function (newVal, oldVal) {
+        if (newVal) {
           this.start()
         }
       }
@@ -22,24 +22,28 @@ Component({
   },
   attached: function () {
   },
-  detached: function () { 
+  detached: function () {
     clearInterval(dot_inter)
   },
-  ready: function () { 
-    var that=this;
+  ready: function () {
+    var that = this;
     that.drawCanvas();
     that.dotStart();
   },
   methods: {
-    drawCanvas: function (){
+    drawCanvas: function () {
       const ctx = wx.createCanvasContext('roulette', this);
-      let options=this.data.options;
+      let windowWidth = wx.getSystemInfoSync().windowWidth;
+      let windowHeight = wx.getSystemInfoSync().windowHeight;
+      // console.log(windowWidth, windowHeight,999)
+      let options = this.data.options;
+      let sum = windowWidth / 375;
       var angelTo = this.data.angelTo || 0;
-      var width=295;
-      var height=295;
+      var width = 295 * sum;
+      var height = 295 * sum;
       var x = width / 2;
       var y = width / 2;
-      var num=6;
+      var num = 6;
       ctx.translate(x, y)
       ctx.clearRect(-width, -height, width, height);
 
@@ -50,22 +54,22 @@ Component({
       ctx.rotate(angelTo * Math.PI / 180);
       // 画外圆
       ctx.beginPath();
-      ctx.lineWidth = 20;
+      ctx.lineWidth = 20 * sum;
       ctx.strokeStyle = options.bgOut;
-      ctx.arc(0, 0, 130, 0, 2 * Math.PI)
+      ctx.arc(0, 0, 130 * sum, 0, 2 * Math.PI)
       ctx.stroke();
       // 画里圆
       ctx.beginPath();
-      ctx.lineWidth = 6;
+      ctx.lineWidth = 6 * sum;
       ctx.strokeStyle = options.bgMiddle;
-      ctx.arc(0, 0, 120, 0, 2 * Math.PI)
+      ctx.arc(0, 0, 120 * sum, 0, 2 * Math.PI)
       ctx.stroke();
 
       // 装饰点
       var dotColor = options.dotColor;
       for (var i = 0; i < 26; i++) {
         ctx.beginPath();
-        var radius = 131;
+        var radius = 131 * sum;
         var xr = radius * Math.cos(startAngel)
         var yr = radius * Math.sin(startAngel)
         ctx.fillStyle = dotColor[i % dotColor.length]
@@ -73,13 +77,13 @@ Component({
         ctx.fill()
         startAngel += (2 * Math.PI / 360) * (360 / 26);
       }
-       // 画里转盘   
+      // 画里转盘   
       var colors = options.bgInner;
       for (var i = 0; i < num; i++) {
         ctx.beginPath();
-        ctx.lineWidth =116;
+        ctx.lineWidth = 116 * sum;
         ctx.strokeStyle = colors[i % colors.length]
-        ctx.arc(0, 0, 60, startAngel, endAngel)
+        ctx.arc(0, 0, 60 * sum, startAngel, endAngel)
         ctx.stroke();
         startAngel = endAngel
         endAngel += angel
@@ -92,22 +96,22 @@ Component({
         ctx.rotate(startAngel);
         ctx.font = options.font;
         ctx.fillStyle = options.fontColor,
-        ctx.textAlign = "center";
-        ctx.fillText(awardTitle[i].level, 0, -90);
+          ctx.textAlign = "center";
+        ctx.fillText(awardTitle[i].level, 0, -90 * sum);
         startAngel += angel
         ctx.restore();
       }
       ctx.draw()
     },
-    rollStart(e){
+    rollStart(e) {
       this.triggerEvent('getAngel')
     },
-    start(){
-      var that=this;
-      let options=that.data.options;
+    start() {
+      var that = this;
+      let options = that.data.options;
       var angel = that.data.angel;
       angel = 360 - angel;
-      angel += 360*6;
+      angel += 360 * 6;
       var baseStep = 30
       // 起始滚动速度
       var baseSpeed = 0.3
@@ -115,7 +119,7 @@ Component({
 
       var timer = setInterval(function () {
         that.setData({
-          angelTo:count
+          angelTo: count
         })
         clearInterval(dot_inter);
         that.drawCanvas();
@@ -133,7 +137,7 @@ Component({
     dotStart: function () {
       var that = this;
       let times = 0;
-      let options =that.data.options;
+      let options = that.data.options;
       dot_inter = setInterval(function () {
         if (times % 2) {
           options.dotColor = options.dotColor_1

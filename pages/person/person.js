@@ -18,6 +18,11 @@ Page({
       console.log(err)
     })
   },
+  toPacket(){
+    wx.navigateTo({
+      url: `/pages/packet/packet`
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,7 +39,27 @@ Page({
       });
     }
   },
+// 登录
+  getUserInfo: function(e) {
+    const that = this;
+    if (e.detail.errMsg == "getUserInfo:ok") {
+      wx.showLoading({
+        title: '加载中...'
+      })
+      if (app.globalData.userInfo) {
+        wx.navigateTo({
+          url: `/pages/prize/prize`
+        })
+      } else {
+        app.login(e, function() {
+          wx.navigateTo({
+            url: `/pages/prize/prize`
+          })
+        });
+      }
+    }
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

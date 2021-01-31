@@ -6,6 +6,8 @@ App({
     wx.cloud.init({
       env: "home-4gev7v2if54f1e14"
     })
+    
+
     //获取导航高度
     wx.getSystemInfo({
       success: res => {
@@ -19,6 +21,7 @@ App({
     if (userInfo) {
       this.globalData.userInfo = userInfo;
     }
+  
     //获取屏幕高度
     // wx.getSystemInfo({
     //   success(res) {
@@ -101,6 +104,10 @@ App({
         that.globalData.userInfo = e.detail.userInfo;
         callback()
         wx.setStorageSync('userInfo', e.detail.userInfo)
+        wx.setStorageSync('sum', 2)
+        let startTime = new Date(new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1)
+        // 当天0点
+        wx.setStorageSync('date', Date.parse(startTime))
       }
     })
   },

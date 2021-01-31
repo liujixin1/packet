@@ -45,10 +45,24 @@ Page({
       dotColor_2: ['#b1ffdd', '#ffffff'],
       angel: 0 /**选择角度 */
     },
-    lotteryNum: 2,
+    lotteryNum: 0,
     start: true,
   },
-  onLoad: function () {},
+  onLoad: function () {
+    const that = this;
+    let timestamp = Date.parse(new Date());
+    let startTime = new Date(new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1)
+    let date = wx.getStorageSync('date')
+    console.log(timestamp, date,88888)
+    if (timestamp > date){
+      wx.setStorageSync('sum',2)
+      wx.setStorageSync('date', startTime)
+    } 
+    that.setData({
+      lotteryNum: wx.getStorageSync('sum')
+    })
+    
+  },
   getAngel(e) {
     var that = this;
     let lotteryNum = that.data.lotteryNum;
@@ -58,11 +72,13 @@ Page({
       if (lotteryNum > 0) {
         lotteryNum--;
         this.setData({
-          angel: Math.floor(Math.random(1) * 120),
+          angel: Math.floor(Math.random(1) * 110),
           /**传入的角度 */
           start: false,
           lotteryNum: lotteryNum,
         })
+        wx.setStorageSync('sum', lotteryNum)
+
       } else {
         wx.showToast({
           title: '暂无抽奖机会啦~',
@@ -79,7 +95,7 @@ Page({
     let options = that.data.rouletteData;
     let index = parseInt(that.data.angel / 60);
 
-    console.log(index, 9999)
+    // console.log(index, 9999)
     wx.showToast({
       title: '再接再厉',
       image: '../../images/feel.png',
@@ -87,7 +103,6 @@ Page({
       success: function (res) {
         that.setData({
           index: index,
-
           start: true,
           [`rouletteData.angel`]: 0
         })

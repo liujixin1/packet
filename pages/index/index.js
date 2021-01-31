@@ -10,7 +10,20 @@ Page({
     listData: [],
     banner: [],
     page: 0,
-    isEnd: false
+    isEnd: false,
+    swiperList: [
+      { img: '../../images/authorImg1.jpg', text: '17分钟前已领取' },
+      { img: '../../images/authorImg2.jpg', text: '23分钟前已领取' },
+      { img: '../../images/authorImg3.jpg', text: '5小时前已领取' },
+      { img: '../../images/authorImg4.jpg', text: '23分钟前已领取' },
+      { img: '../../images/authorImg5.jpg', text: '45分钟前已领取' },
+      { img: '../../images/authorImg6.jpg', text: '7小时前已领取' },
+      { img: '../../images/authorImg7.jpg', text: '21分钟前已领取' },
+      { img: '../../images/authorImg8.jpg', text: '13分钟前已领取' },
+      { img: '../../images/authorImg9.jpg', text: '33分钟前已领取' },
+      { img: '../../images/authorImg10.jpg', text: '44分钟前已领取' },
+     
+    ]
   },
   toArticleDetail(e) {
     const src = e.currentTarget.dataset.src;
@@ -23,7 +36,7 @@ Page({
     that.setData({
       page: 0
     })
-    let PAGE = 5;
+    let PAGE = 6;
     let page = 0;
     wx.showLoading({
       title: '加载中...',
@@ -117,7 +130,7 @@ Page({
     }
     let page = that.data.page;
     page++;
-    const PAGE = 5;
+    const PAGE = 6;
     // if (that.data.status == 1) {
     db.collection('test').where({
       show: true,
@@ -173,6 +186,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    const that = this;
+    return {
+      title: '微信红包封面',
+      imageUrl: that.data.banner[0].img
+    }
   }
 })

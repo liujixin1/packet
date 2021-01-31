@@ -5,6 +5,7 @@
     "pages/person/person",
     "pages/detail/detail",
     "pages/prize/prize",
+    "pages/packet/packet",
     "pages/login/login"
   ],
  
@@ -12,7 +13,7 @@
     "backgroundTextStyle": "light",
     "navigationStyle": "default",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "佰测",
+    "navigationBarTitleText": "新封面",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
