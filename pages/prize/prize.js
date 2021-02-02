@@ -53,10 +53,10 @@ Page({
     let timestamp = Date.parse(new Date());
     let startTime = new Date(new Date(new Date().toLocaleDateString()).getTime() + 24 * 60 * 60 * 1000 - 1)
     let date = wx.getStorageSync('date')
-    console.log(timestamp, date,88888)
+    console.log(timestamp, date,888)
     if (timestamp > date){
       wx.setStorageSync('sum',2)
-      wx.setStorageSync('date', startTime)
+      wx.setStorageSync('date', Date.parse(startTime))
     } 
     that.setData({
       lotteryNum: wx.getStorageSync('sum')

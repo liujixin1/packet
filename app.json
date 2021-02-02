@@ -13,7 +13,7 @@
     "backgroundTextStyle": "light",
     "navigationStyle": "default",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "新封面",
+    "navigationBarTitleText": "封面巷",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

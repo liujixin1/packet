@@ -112,7 +112,7 @@ Component({
       var angel = that.data.angel;
       angel = 360 - angel;
       angel += 360 * 6;
-      var baseStep = 30
+      var baseStep = 100
       // 起始滚动速度
       var baseSpeed = 0.3
       var count = 1;

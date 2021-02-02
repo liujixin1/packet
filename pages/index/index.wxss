@@ -4,8 +4,8 @@ page{
 }
 /* banner轮播图  */
 .swiper_container{
-  position: absolute;
-  z-index: 100;
+  position: fixed;
+  z-index: 400;
   width: 250rpx;
   background: rgba(0,0,0,.6);
   height: 60rpx;
@@ -92,11 +92,12 @@ swiper-item .swiperText{
   display: flex;
   position: absolute;
   bottom: 10rpx;
-  left: 71.25rpx;
+  left: 50%;
+  margin-left: -105rpx;
   background: rgba(0,0,0,.2);
   border-radius:25rpx;
   padding: 0 20rpx;
-  min-width: 210rpx;
+  /* min-width: 210rpx; */
   box-sizing: border-box;
   z-index: 100
 }
