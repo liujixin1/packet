@@ -1,4 +1,5 @@
 // pages/detail/detail.js
+const db = wx.cloud.database();
 const app = getApp();
 Page({
 
@@ -7,7 +8,8 @@ Page({
    */
   data: {
     img: "",
-    pop: true
+    pop: true,
+    model:''
   },
   // 登录
   getUserInfo: function(e) {
@@ -36,10 +38,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const that = this;
+    db.collection('model').get().then(res => {
+      that.setData({
+        model:res.data[0].bool,
+       
+      })
+    })
     wx.showLoading({
       title: '加载中...',
     })
-    const that = this;
     that.setData({
       img: options.img,
     })
