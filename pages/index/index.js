@@ -2,6 +2,7 @@
 const db = wx.cloud.database();
 const time = require('../../utils/util.js');
 const app = getApp();
+let interstitialAd = null
 Page({
   /**
    * 页面的初始数据
@@ -76,6 +77,21 @@ Page({
       navH: app.globalData.navHeight
     })
     that.getData();
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-36d3c526fbab48cc'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
+    
+    // 在适合的场景显示插屏广告
+    if (interstitialAd) {
+      interstitialAd.show().catch((err) => {
+        console.error(err)
+      })
+    }
   },
 
   /**

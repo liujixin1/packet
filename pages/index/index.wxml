@@ -1,32 +1,34 @@
 <!--pages/index/index.wxml-->
 <view class='container'>
-  <swiper mode='aspectFill' indicator-dots="{{true}}" autoplay="true" interval="3500" duration="500" circular="true" indicator-color="rgba(0,0,0,0.2)" indicator-active-color="rgba(0,0,0,0.8)" class='swiper-banner'>
+  <swiper mode='aspectFill' indicator-dots="{{true}}" autoplay="true" interval="3500" duration="500" circular="true"
+    indicator-color="rgba(0,0,0,0.2)" indicator-active-color="rgba(0,0,0,0.8)" class='swiper-banner'>
     <block wx:for="{{banner}}" wx:key='key'>
-      <swiper-item data-id='{{item._id}}' data-itemid='{{item.itemId}}' data-status='{{item.status}}' >
+      <swiper-item data-id='{{item._id}}' data-itemid='{{item.itemId}}' data-status='{{item.status}}'>
         <image mode='aspectFill' src="{{item.img}}" />
       </swiper-item>
     </block>
   </swiper>
-  <swiper  class="swiper_container" vertical="true" autoplay="true" circular="true" interval="5000">
-        <block wx:for="{{swiperList}}" wx:key="*this">
-          <swiper-item>
-            <view class="swiper-item">
-              <image mode='aspectFill' class="swiperImg" src="{{item.img}}" />
-              <view class="swiperText">{{item.text}}</view>
-            </view>
-          </swiper-item>
-        </block>
-      </swiper>
+  <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="5000">
+    <block wx:for="{{swiperList}}" wx:key="*this">
+      <swiper-item>
+        <view class="swiper-item">
+          <image mode='aspectFill' class="swiperImg" src="{{item.img}}" />
+          <view class="swiperText">{{item.text}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+ 
   <view class='list'>
     <block wx:for='{{listData}}' wx:key="item">
       <view data-src='{{item.img}}' class='item' bindtap='toArticleDetail'>
         <image class='itemImg' mode='aspectFill' src='{{item.img}}'></image>
         <image class='footerImg' mode='aspectFill' src='../../images/footer.png'></image>
-       
-         <view class="itemLeFooter">
-            <view class='iconfont .icon-fire'></view>
-            <view class='time'>{{item.sum}}人已领取</view>
-          </view>
+
+        <view class="itemLeFooter">
+          <view class='iconfont .icon-fire'></view>
+          <view class='time'>{{item.sum}}人已领取</view>
+        </view>
       </view>
     </block>
   </view>
